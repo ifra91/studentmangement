@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lan = "en">
+
+<head>
+    <tiitle>
+        <h2>Student Management System</h2>
+    </tiitle>
+    <link rel = "stylesheet" src = "../public/login.css/"></link>
+
+{{!-- 
+<script>
+function validateLoginAdmin() {
+    const userName = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    if(userName == "admin" && password  =="user") {
+        load("index.html");
+        
+    } else {
+        alert("login failed");
+        load("login.html");
+       
+    }
+}
+</script> --}}
+</head>
+
+<body class="box">
+    <!-- <form class = "box" method = POST action = "index.html">
+        <h2>Login</h2>
+    <input type = "text" name = " " placeholder = "email" id="username">
+    <input type = "password" name = " " placeholder = "password">
+    <input type = "submit" value="Login" onclick = "validate()" id = "submitBtn">action="index.html" -->
+
+    <form action="/login" method = "POST" >
+        <h2>Admin Login!</h2>
+      
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" id="username" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+      
+          <button type="submit" value="Login" onclick = "loading.href" >Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+
+</form>
+</body>
+</html>

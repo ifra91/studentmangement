@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentData</title>
+    
+</head>
+<body>
+    <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>StudentID</th>
+        <th>Grade</th>
+        <th>Address</th>
+        <th>Contact Information</th>
+      </tr>
+    </thead>
+    <tbody id= "data" >
+
+    </tbody>
+  
+  </table>
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>StudentID</th>
+        <th>English</th>
+        <th>Hindi</th>
+        <th>Science</th>
+        <th>Math</th>
+        <th>Social</th>
+      </tr>
+    </thead>
+    <tbody id="marksdata">
+
+    </tbody>
+  </table>
+  </div>
+
+  <div>
+
+  <script>
+  fetch("http://localhost:3000/Students").then(
+  res => {
+    res.json().then(
+      data => {
+        console.log(data);
+        if (data.length > 0) {
+
+          var temp = " ";
+          data.forEach((itemData) => {
+            temp +=  "<tr>";
+              temp += "<td>" + itemData.firstname + "</td>";
+              temp += "<td>" + itemData.lastname + "</td>";
+              temp += "<td>" + itemData.student_Id + "</td>";
+              temp += "<td>" + itemData.classGrade + "</td>";
+              temp += "<td>" + itemData.Address + "</td>";
+              temp += "<td>" + itemData.ContactInfo + "</td>";
+
+          });
+          document.getElementById('data').innerHTML = temp;
+        }
+      }
+    )
+  }
+)
+  
+
+fetch("http://localhost:3000/StudentGrade").then(
+  res => {
+    res.json().then(
+      marksdata => {
+        console.log(marksdata);
+        if (marksdata.length > 0) {
+
+          var tempmarks = "";
+          marksdata.forEach((itemMarks) => {
+            tempmarks += "<tr>";
+            tempmarks += "<td>" + itemMarks.student_Id + "</td>";
+            tempmarks += "<td>" + itemMarks.engmarks + "</td>";
+            tempmarks += "<td>" + itemMarks.hindimarks + "</td>";
+            tempmarks += "<td>" + itemMarks.sciencemarks + "</td>";
+            tempmarks += "<td>" + itemMarks.mathsmarks + "</td>";
+            tempmarks += "<td>" + itemMarks.socialmarks + "</td>";
+          });
+          document.getElementById('marksdata').innerHTML = tempmarks;
+        }
+      }
+    )
+  }
+)
+
+</script>
+
+</div>
+
+
+<div>
+
+
+
+</div>
+
+</body>
+</html>
