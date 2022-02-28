@@ -5,7 +5,7 @@
     <tiitle>
         <h2>Student Management System</h2>
     </tiitle>
-    <link rel = "stylesheet" src = "../public/login.css/"></link>
+    <link rel = "stylesheet" src = "login.css"></link>
 
 {{!-- 
 <script>
@@ -31,7 +31,7 @@ function validateLoginAdmin() {
     <input type = "password" name = " " placeholder = "password">
     <input type = "submit" value="Login" onclick = "validate()" id = "submitBtn">action="index.html" -->
 
-    <form action="/login" method = "POST" >
+    <form action = "/login" method = "POST" >
         <h2>Admin Login!</h2>
       
         <div class="container">
@@ -41,7 +41,7 @@ function validateLoginAdmin() {
           <label for="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" id="password" required>
       
-          <button type="submit" value="Login" onclick = "loading.href" >Login</button>
+          <button type="submit" value="Login" onclick = "validate()" >Login</button>
           <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
           </label>
@@ -52,7 +52,20 @@ function validateLoginAdmin() {
           <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
       </form>
-
+<script>
+  function validate() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if(username=="admin"&&password=="user"){
+      alert("Login successful");
+      
+      return false;
+    } else {
+      alert("login failed");
+      
+    }
+  }
+</script>
 </form>
 </body>
 </html>

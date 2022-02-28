@@ -30,11 +30,12 @@ routernew.get("/studentgrade", async (req,res) => {
 
 // use ranking to sort
 //handel get request for individual field from schema
-routernew.get("/studentgrade/:studentId", async (req,res) => {
+routernew.get("/studentgrade/:_id", async (req,res) => {
     try{
-        const getmrksid = req.params.studentId;
+        const getmrksid = req.params.student_Id;
         const updatestuId = await StudentGrade.findById(getmrksid);
         res.send(updatestuId);
+        console.log(updatestuId);
     } catch(e) {
         res.status(400).send(e);
     }

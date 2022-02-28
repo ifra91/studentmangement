@@ -28,11 +28,13 @@ router.get("/students", async (req,res) => {
 })
 // use ranking to sort
 //handel get request for individual field from schema
-router.get("/students/:rollnum", async (req,res) => {
+router.get("/students/:_id", async (req,res) => {
     try{
         const stuId = req.params.student_Id;
         const getstuId = await Student.findById(stuId);
         res.send(getstuId);
+        console.log(getstuId);
+        
     } catch(e) {
         res.status(400).send(e);
     }
