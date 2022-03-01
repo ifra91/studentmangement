@@ -22,6 +22,15 @@ app.use(router);
 app.use(routernew);
 
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept",
+    );
+    next();
+  });
+
 
 //relative path
 const static_path = path.join(__dirname, "../public" );
@@ -64,25 +73,12 @@ app.get('/studentdata' , async (req, res) => {
 })
 
 
-app.get('/studentsearch' , async (req, res) => {
-    res.render("studentsearch");
-})
+// app.get('/studentsearch' , async (req, res) => {
+//     res.render("studentsearch");
+// })
 
 app.get("/stsearch" , function(req,res){
-    request("http://localhost:3000/students",
-    function(error, response, body) {
-        if(error){
-            console.log(error);
-            
-        } else {
-            
-            response.render("studentsearch", {
-                body : JSON.parse(body)
-            });
-        }
-    })
-
-    
+    res.render("studentsearch");
 });
     
 
